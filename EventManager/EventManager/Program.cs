@@ -1,3 +1,6 @@
+using EventManager.Models;
+using Microsoft.EntityFrameworkCore;
+
 namespace EventManager
 {
     public class Program
@@ -10,6 +13,9 @@ namespace EventManager
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
+
+            builder.Services.AddDbContext<EventManagerContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
