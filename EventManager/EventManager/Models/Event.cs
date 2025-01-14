@@ -21,6 +21,7 @@ namespace EventManager.Models
         [Required]
         public int Capacity { get; set; }
 
+        [Display(Name="Participants")]
         public int RegisteredParticipants { get; set; } = 0;
     }
 }
